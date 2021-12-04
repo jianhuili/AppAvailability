@@ -22,7 +22,7 @@ var appAvailability = {
     check: function(urlScheme, successCallback, errorCallback) {
         urlScheme = checkUrlScheme(urlScheme, errorCallback);
         // Only call the native plugin if we have valid urlScheme
-        urlScheme && cordova.exec(
+        urlScheme && exec(
             successCallback,
             errorCallback,
             "AppAvailability",
@@ -34,7 +34,7 @@ var appAvailability = {
     checkBool: function(urlScheme, callback) {
         urlScheme = checkUrlScheme(urlScheme, function() { callback(false); });
         // Only call the native plugin if we have valid urlScheme
-        urlScheme && cordova.exec(
+        urlScheme && exec(
             function(success) { callback(success); },
             function(error) { callback(error); },
             "AppAvailability",
